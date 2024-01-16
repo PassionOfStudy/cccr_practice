@@ -33,7 +33,7 @@ pipeline {
                 sh 'mvn test'
                 sh 'echo -----------------------------------------------'
                 sh 'echo ---------------TEST--------------'
-                sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/
+                sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/'
             }
         }
 /*
