@@ -55,7 +55,7 @@ pipeline {
         stage('Push Docker Image') {
             agent any
             steps {
-                withDockerRegistry(credentialsID: 'docker-hub-token', url: 'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker-hub-token', url: 'https://index.docker.io/v1/') {
                     sh 'docker push myhello'
                 }
             }
