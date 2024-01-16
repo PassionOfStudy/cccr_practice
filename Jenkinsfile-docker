@@ -36,7 +36,7 @@ pipeline {
                 sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/'
             }
         }
-/*
+
         stage('Build Docker Image') {
             agent any
             steps {
@@ -51,7 +51,7 @@ pipeline {
                 sh 'docker image tag myhello epocle/myhello:latest'
             }
         }
-
+/*
         stage('Push Docker Image') {
             agent any
             steps {
