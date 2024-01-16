@@ -1,0 +1,64 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Checkout') {
+            agent any
+            steps {
+                git branch: 'main', url: 'https://github.com/PassionOfStudy/cccr_practice.git'
+            }
+        }
+
+        stage('Build') {
+            agent {
+                docker { image 'maven:3-openjdk-11' }
+            }
+            steps {
+                sh 'mvn clean package -DskipTests=true'
+            }
+        }
+
+        stage('Test') {
+            agent {
+                docker { image 'maven:3-openjdk-11' }
+            }
+            steps {
+                sh 'mvn test'
+            }
+        }
+/*
+        stage('Build Docker Image') {
+            agent any
+            steps {
+                sh 'docker image build -t myhello .'
+            }
+        }
+
+        stage('Tag Docker Image') {
+            agent any
+            steps {
+                sh 'docker image tag myhello epocle/myhello:$BUILD_NUMBER'
+                sh 'docker image tag myhello epocle/myhello:latest'
+            }
+        }
+
+        stage('Push Docker Image') {
+            agent any
+            steps {
+                withDockerRegistry(credentialsID: 'docker-hub-token', url: 'https://index.docker.io/v1/') {
+                    sh 'docker push myhello'
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            agent {
+                docker { image 'docker:dind' }
+            }
+            steps {
+                sh 'docker -H tcp://<DOCKER_HOST_PRIVATE_IP>:2375 container run --detach --name <CONTAINER_NAME> -p 80:8080 <IMAGE>:$BUILD_NUMBER'
+            }
+        }
+        */
+    }
+}
