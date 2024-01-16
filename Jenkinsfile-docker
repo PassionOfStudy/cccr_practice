@@ -61,15 +61,14 @@ pipeline {
                 }
             }
         }
-/*
+
         stage('Run Docker Container') {
             agent {
                 docker { image 'docker:dind' }
             }
             steps {
-                sh 'docker -H tcp://<DOCKER_HOST_PRIVATE_IP>:2375 container run --detach --name <CONTAINER_NAME> -p 80:8080 <IMAGE>:$BUILD_NUMBER'
+                sh 'docker -H tcp://172.19.0.1:2375 container run --detach --name myhello -p 80:8080 epocle/myhello:$BUILD_NUMBER'
             }
         }
-        */
     }
 }
