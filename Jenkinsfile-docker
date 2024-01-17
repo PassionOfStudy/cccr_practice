@@ -8,7 +8,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PassionOfStudy/cccr_practice.git'
             }
         }
-
+/*
         stage('Build') {
             agent {
                 docker { image 'maven:3-openjdk-11' }
@@ -70,5 +70,6 @@ pipeline {
                 sh 'docker -H tcp://192.168.3.186:2375 container run --detach --name myhello -p 80:8080 epocle/myhello:$BUILD_NUMBER'
             }
         }
+    */
     }
 }
