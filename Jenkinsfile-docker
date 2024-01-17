@@ -14,12 +14,7 @@ pipeline {
                 docker { image 'maven:3-openjdk-11' }
             }
             steps {
-                sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/'
-                sh 'echo -----------------------------------------------'
                 sh 'mvn clean package -DskipTests=true'
-                sh 'echo -----------------------------------------------'
-                sh 'echo ---------------BUILD--------------'
-                sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/'
             }
         }
 /*
