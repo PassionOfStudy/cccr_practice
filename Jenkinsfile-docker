@@ -8,7 +8,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PassionOfStudy/cccr_practice.git'
             }
         }
-/*
+
         stage('Build') {
             agent {
                 docker { image 'maven:3-openjdk-11' }
@@ -22,7 +22,7 @@ pipeline {
                 sh 'ls /var/jenkins_home/workspace/docker_maven_pipeline/'
             }
         }
-
+/*
         stage('Test') {
             agent {
                 docker { image 'maven:3-openjdk-11' }
